@@ -15,7 +15,7 @@ const Card = (props) => {
                     </div>
                     <div className='absolute inset-0 size-full bg-black/90 rounded-xl px-12 text-center [transform:rotateY(180deg)] [backface-visibility:hidden] '>
                         <div className='size-full flex flex-col items-center justify-evenly text-white'>
-                            <h1 className='text-5xl font-audiowise bg-gradient-to-r from-[#9795FF] via-white to-[#BE9FFF] bg-clip-text text-transparent my-2 uppercase'>{props.name}</h1>
+                            <h1 className='text-5xl font-audiowise bg-gradient-to-r from-red-200 via-white to-red-700 bg-clip-text text-transparent my-2 uppercase'>{props.name}</h1>
                             <p className=' line-clamp-5 font-montserrat text-lg'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias aspernatur commodi repellendus architecto quasi facilis, tempore maiores blanditiis illum tempora beatae, perspiciatis voluptatibus consequatur, quod quae veritatis dolorum! Delectus, tenetur?</p>
                         </div>
                     </div>
