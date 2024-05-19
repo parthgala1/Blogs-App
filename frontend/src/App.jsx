@@ -20,8 +20,20 @@ function App() {
               <AboutUs />
             </>
           } />
-          <Route path='/blogs' element={<Blogs />} />
-          <Route path='*' element={<NotFoundPage />} />
+          <Route path='/blogs' element={
+            <>
+              <Navbar />
+              <Blogs />
+            </>
+          }
+          />
+          <Route path='*' element={
+
+            <>
+              <Navbar />
+              <NotFoundPage />
+            </>
+          } />
         </Routes>
       </Router>
     </>

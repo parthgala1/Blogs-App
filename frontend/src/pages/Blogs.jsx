@@ -4,7 +4,6 @@ import Navbar from '../components/Navbar'
 const Blogs = () => {
     return (
         <div>
-            <Navbar />
         </div>
     )
 }
