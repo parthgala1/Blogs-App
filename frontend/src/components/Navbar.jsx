@@ -22,10 +22,10 @@ const Navbar = () => {
     }
 
     return (
-        <div className="bg-blue-300 max-h-96 min-h-20 px-10 flex justify-between items-center ">
+        <div className="max-h-96 min-h-20 px-10 flex justify-between items-center ">
             <div className="flex-center gap-0.5">
 
-                <h1 className=" text-white text-2xl font-montserrat tracking-wider">
+                <h1 className=" text-black font-bold text-2xl font-montserrat tracking-wider">
                     Blogs App
                 </h1>
             </div>
@@ -35,7 +35,7 @@ const Navbar = () => {
                     <Link
                         key={item.title}
                         to={item.link}
-                        className="text-white font-montserrat flex-center cursor-pointer"
+                        className="text-black font-montserrat flex-center cursor-pointer"
                         onClick={() => handleNavbarItemClick(item)}
                     >
                         {item.title}
