@@ -14,7 +14,7 @@
     }
 
     .text-border {
-        -webkit-text-stroke: 2px #854CFF50;
+        -webkit-text-stroke: 3px rgba(248, 113, 113, 0.6);
     }
 
     .image {

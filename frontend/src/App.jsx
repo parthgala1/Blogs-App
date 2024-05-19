@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Blogs from './pages/Blogs'
 import AboutUs from './pages/LandingPage/AboutUs'
+import Contact from './pages/LandingPage/Contact'
+import ContactUs from './pages/ContactUs'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,6 +20,7 @@ function App() {
               <Navbar />
               <Home />
               <AboutUs />
+              <Contact />
             </>
           } />
           <Route path='/blogs' element={
@@ -27,6 +30,13 @@ function App() {
             </>
           }
           />
+          <Route path='/contactus' element={
+            <>
+              <Navbar />
+              <ContactUs />
+              <Contact />
+            </>
+          } />
           <Route path='*' element={
 
             <>

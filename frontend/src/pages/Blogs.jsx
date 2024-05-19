@@ -3,7 +3,8 @@ import Navbar from '../components/Navbar'
 
 const Blogs = () => {
     return (
-        <div>
+        <div className='h-screen flex-center'>
+            Blogs
         </div>
     )
 }
