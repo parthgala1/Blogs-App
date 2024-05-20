@@ -23,7 +23,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="absolute top-0 bg-white max-h-96 min-h-20 w-full px-10 flex justify-between items-center ">
+        <div className=" top-0 bg-white max-h-96 min-h-20 w-full px-10 flex justify-between items-center ">
             <div className="flex-center gap-0.5">
 
                 <h1 className={`bg-gradient-to-b from-red-200 to-red-700 bg-clip-text text-transparent font-bold text-xl uppercase font-montserrat tracking-wider`}>
