@@ -1,1 +1,1 @@
-const DB_NAME = "mern-todo-app";
+export const DB_NAME = "mern-todo-app";

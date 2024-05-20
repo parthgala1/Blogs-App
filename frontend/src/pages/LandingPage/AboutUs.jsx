@@ -7,7 +7,7 @@ import photo3 from '../../assets/photo3.jpg'
 const AboutUs = () => {
     return (
         <div className=' h-screen w-full flex flex-col justify-evenly '>
-            <h1 className='text-center text-5xl font-montserrat font-semibold tracking-wider text-gray-800 bg-clip-text text-transparent '>ABOUT US</h1>
+            <h1 className='text-center text-5xl font-montserrat font-semibold tracking-wider text-gray-800'>ABOUT US</h1>
             <div className=" relative mt-16 grid grid-flow-col">
                 <Card
                     name="Inspiring"

@@ -13,7 +13,7 @@ const BlogName = () => {
                     <p className='absolute top-50% left-[20rem] text-border hover:rotate-0 -rotate-12 duration-300 text-9xl leading-normal text-white font-audiowise font-thin'>S</p>
                 </div>
             </div>
-            <div className='absolute top-0 h-full w-full bg-black/60 -z-10'></div>
+            <div className='absolute top-0 h-full w-full bg-black/50 -z-10'></div>
 
         </div>
     )

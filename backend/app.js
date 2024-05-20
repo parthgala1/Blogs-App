@@ -3,7 +3,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import Multer from "multer";
 import cloudinary from "cloudinary";
-import { upload } from "./middlewares/multer,middleware.js";
+import { upload } from "./middlewares/multer.middleware.js";
 
 const app = express();
 
@@ -57,6 +57,8 @@ app.post("/api/auth/upload", upload.single("my_file"), async (req, res) => {
   }
 });
 
-
+app.get("/", (req, res) => {
+  res.send("Hello World! This is the backend of the MERN Blogs App");
+});
 
 export { app };
