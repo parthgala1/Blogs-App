@@ -19,7 +19,7 @@ const SearchBar = () => {
                 <option className='bg-inherit' value="">ML</option>
                 <option className='bg-inherit' value="">WebDev</option>
             </select> */}
-            <button className='border-2 p-2 border-transparent rounded-xl active:bg-red-300 active:text-white duration-300 active:scale-90 font-audiowise' onClick={handleSearch}>Search</button>
+            <button className='border-2 p-2 border-transparent rounded-xl active:bg-red-300 active:opacity-70 duration-300 active:scale-90 font-audiowise' onClick={handleSearch}>Search</button>
         </div>
     )
 }
