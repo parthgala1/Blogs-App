@@ -8,6 +8,7 @@ import AboutUs from './pages/LandingPage/AboutUs'
 import Contact from './pages/LandingPage/Contact'
 import ContactUs from './pages/ContactUs'
 import CreatePost from './pages/Blogs/CreatePost'
+import UpdatePost from './pages/Blogs/UpdatePost'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -35,6 +36,12 @@ function App() {
             <>
               <Navbar />
               <CreatePost />
+            </>
+          } />
+          <Route path='/blogs/updatePost' element={
+            <>
+              <Navbar />
+              <UpdatePost />
             </>
           } />
           <Route path='/contactus' element={
