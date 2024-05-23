@@ -9,6 +9,8 @@ import Contact from './pages/LandingPage/Contact'
 import ContactUs from './pages/ContactUs'
 import CreatePost from './pages/Blogs/CreatePost'
 import UpdatePost from './pages/Blogs/UpdatePost'
+import Login from './pages/login/Login'
+import Register from './pages/Register/Register'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -25,6 +27,8 @@ function App() {
               <Contact />
             </>
           } />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
           <Route path='/blogs' element={
             <>
               <Navbar />

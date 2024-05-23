@@ -1,11 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import photo1 from '../assets/photo2.jpg'
 
 const BlogsBar = () => {
+    const navigate = useNavigate()
 
     const handleBlogs = () => {
         console.log('Blogs')
+        navigate(`/blogs/${id}`)
+
     }
     return (
         <div onClick={handleBlogs} className='h-1/4 flex justify-center items-center w-5/6 my-4 cursor-pointer hover:scale-105 duration-300 active:scale-100'>

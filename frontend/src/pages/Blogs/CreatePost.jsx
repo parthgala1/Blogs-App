@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { useNavigate } from 'react-router-dom'
 
 const modules = {
     toolbar: [
@@ -27,9 +28,12 @@ const formats = [
 
 const CreatePost = () => {
     const [value, setValue] = useState('')
+    const navigate = useNavigate()
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(value)
+        // console.log(value)
+        navigate('/blogs')  
     }
     return (
         <div className='h-screen flex justify-center items-start m-20'>
