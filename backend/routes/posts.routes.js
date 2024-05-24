@@ -1,5 +1,7 @@
-import express from 'express';
+import express from "express";
 
 const router = express();
 
-router.get('/posts');
+router.get("/posts");
+
+export default router;

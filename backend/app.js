@@ -57,6 +57,12 @@ app.post("/api/auth/upload", upload.single("my_file"), async (req, res) => {
   }
 });
 
+// Routes
+import authRoutes from "./routes/auth.routes.js";
+import postRoutes from "./routes/posts.routes.js";
+app.use("/api/auth", authRoutes);
+app.use("/api/posts", postRoutes);
+
 app.get("/", (req, res) => {
   res.send("Hello World! This is the backend of the MERN Blogs App");
 });
