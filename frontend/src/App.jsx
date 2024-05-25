@@ -11,6 +11,7 @@ import CreatePost from './pages/Blogs/CreatePost'
 import UpdatePost from './pages/Blogs/UpdatePost'
 import Login from './pages/login/Login'
 import Register from './pages/Register/Register'
+import BlogsPage from './pages/Blogs/BlogsPage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -55,6 +56,7 @@ function App() {
               <Contact />
             </>
           } />
+          <Route path='/blogs/:id' element={<BlogsPage />} />
           <Route path='*' element={
 
             <>
