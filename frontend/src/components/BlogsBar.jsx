@@ -31,8 +31,8 @@ const BlogsBar = ({ props }) => {
                 </div>
                 <div className='text-xl font-sans font-light text-pretty py-2 text-gray-700'>
                     Summary: <br />
-                    <div dangerouslySetInnerHTML={{ __html: props[0].content }}></div>
-                    {/* {props[0].content} */}
+                    {/* <div dangerouslySetInnerHTML={{ __html: props[0].content }}></div> */}
+                    {props[0].summary}
                 </div>
             </div>
         </div>
