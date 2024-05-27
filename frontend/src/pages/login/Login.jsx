@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
-// import useLogin from '../../hooks/useLogin.js';
-// import { useNavigate } from 'react-router-dom';
+import useLogin from '../../hooks/useLogin.js';
 
 const Login = () => {
     const [hidePassword, setHidePassword] = useState(true)
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const handlePassword = (e) => {
         e.preventDefault();
         !hidePassword ? setHidePassword(true) : setHidePassword(false)
@@ -20,12 +19,12 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // login(user.username, user.password)
+        login(user.username, user.password)
         console.log(user);
-        // navigate('/');
+        navigate('/');
     }
 
-    // const { loading, login } = useLogin()
+    const { loading, login } = useLogin()
 
 
 

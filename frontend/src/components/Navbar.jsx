@@ -1,11 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { NavbarData } from "../data/navbarData";
+import useLogout from "../hooks/useLogout";
+import { useAuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
     const navbarItems = NavbarData();
     const navbarRef = useRef();
     const navgiate = useNavigate();
+
+    const { loading, logout } = useLogout();
+    const authUser = useAuthContext();
 
     const handleNavbarItemClick = (item) => {
         if (item.link === "/") {
@@ -44,12 +49,21 @@ const Navbar = () => {
                 ))}
             </div>
             <div className="flex-center gap-10">
-                <Link to="/login" className={`text-red-400 font-montserrat flex-center cursor-pointer hover:font-bold`}>
-                    Login
-                </Link>
-                <Link to="/register" className={`text-red-400 font-montserrat flex-center cursor-pointer hover:font-bold`}>
-                    Register
-                </Link>
+                {!authUser ? <>
+                    <Link to="/login" className={`text-red-400 font-montserrat flex-center cursor-pointer hover:font-bold`}>
+                        Login
+                    </Link>
+                    <Link to="/register" className={`text-red-400 font-montserrat flex-center cursor-pointer hover:font-bold`}>
+                        Register
+                    </Link>
+                </>
+                    :
+                    <>
+                        <Link onClick={logout} className={`text-red-400 font-montserrat flex-center cursor-pointer hover:font-bold`}>
+                            
+                        </Link>
+                    </>
+                }
             </div>
         </div>
     );
