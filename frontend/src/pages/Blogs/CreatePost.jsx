@@ -44,7 +44,7 @@ const CreatePost = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(blog)
-        // navigate('/blogs')
+        navigate('/blogs')
     }
     return (
         <div className='h-screen flex justify-center items-start m-20'>

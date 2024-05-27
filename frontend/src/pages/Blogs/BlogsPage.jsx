@@ -1,6 +1,6 @@
 import React from 'react';
 import { useGetPostById } from '../../hooks/useGetPostById';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const BlogsPage = () => {
     const id = window.location.pathname.split('/')[2];
@@ -32,6 +32,9 @@ const BlogsPage = () => {
                 <div className='m-3 text-center'>
                     <p className='text-center'>Name </p>
                     <p className='text-black/40 text-center text-sm'>{formattedDate}</p>
+                </div>
+                <div className='m-10'>
+                    <Link to='../blogs/updatePost' className='p-3 px-5 m-10 rounded font-montserrat text-white active:scale-90 duration-300 active:opacity-80 bg-red-300'>Add your Blog</Link>
                 </div>
                 <div className='flex-center'>
                     <div dangerouslySetInnerHTML={{ __html: posts.content }} className='text-3xl text-pretty w-3/4' />

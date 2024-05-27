@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../../context/AuthContext';
 
 const modules = {
     toolbar: [
@@ -30,6 +31,14 @@ const formats = [
 const CreatePost = () => {
     const [value, setValue] = useState('');
     const navigate = useNavigate();  // Moved this line to the top of the component
+    const { authUser } = useAuthContext()
+    const [blog, steBlog] = useState({
+        title: '',
+        summary: '',
+        link: '',
+        content: '',
+        name: authUser.name,
+    })
 
     const handleSubmit = (e) => {
         // e.preventDefault();
@@ -41,6 +50,7 @@ const CreatePost = () => {
         <div className='h-screen flex justify-center items-start m-20'>
             <div className='flex-center flex-col h-1/2 w-1/2 p-5'>
                 <h1 className='w-full text-center font-montserrat text-3xl m-3 tracking-wider'>Update Post</h1>
+                <input type="text" placeholder='Name' value={authUser.name} readOnly className='w-full p-2 m-3 border-red-300 bg-white border-2 outline-0 cursor-not-allowed' />
                 <input type="text" placeholder='Title' className='w-full p-2 m-3 border-red-300 bg-white border-2 outline-0' />
                 <input type="text" placeholder='Summary' className='w-full p-2 m-3 border-red-300 bg-white border-2 outline-0' />
                 <input type="text" placeholder='Link' className='w-full p-2 m-3 border-red-300 bg-white border-2 outline-0' />
