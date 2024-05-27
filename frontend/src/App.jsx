@@ -15,7 +15,7 @@ import BlogsPage from './pages/Blogs/BlogsPage'
 import { AuthContext, useAuthContext } from './context/AuthContext'
 
 function App() {
-  const authUser = useAuthContext()
+  const { authUser } = useAuthContext()
 
   return (
     <>
@@ -28,9 +28,14 @@ function App() {
             <Contact />
           </>
         } />
-        <Route path={'/login'} element={authUser ? <Login /> : <Navigate to='/' />} />
-        <Route path={'/register'} element={authUser ? <Register /> : <Navigate to='/' />} />
-        <Route path='/blogs' element={
+        <Route path={'/login'} element={!authUser ? <Login /> : <Navigate to='/' />} />
+        <Route path={'/register'} element={!authUser ? <Register /> : <Navigate to='/' />} />
+        <Route path='/blogs' element={!authUser ?
+          <>
+            <Navbar />
+            <NotFoundPage />
+          </>
+          :
           <>
             <Navbar />
             <Blogs />
@@ -63,6 +68,7 @@ function App() {
             <Contact />
           </>
         } />
+
         <Route path='*' element={
 
           <>

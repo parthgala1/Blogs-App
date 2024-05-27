@@ -10,7 +10,7 @@ const Navbar = () => {
     const navgiate = useNavigate();
 
     const { loading, logout } = useLogout();
-    const authUser = useAuthContext();
+    const { authUser } = useAuthContext();
 
     const handleNavbarItemClick = (item) => {
         if (item.link === "/") {
@@ -26,6 +26,7 @@ const Navbar = () => {
 
         navgiate(item.link);
     }
+    console.log(authUser);
 
     return (
         <div className=" top-0 bg-white max-h-96 min-h-20 w-full px-10 flex justify-between items-center ">
@@ -49,18 +50,19 @@ const Navbar = () => {
                 ))}
             </div>
             <div className="flex-center gap-10">
-                {!authUser ? <>
-                    <Link to="/login" className={`text-red-400 font-montserrat flex-center cursor-pointer hover:font-bold`}>
-                        Login
-                    </Link>
-                    <Link to="/register" className={`text-red-400 font-montserrat flex-center cursor-pointer hover:font-bold`}>
-                        Register
-                    </Link>
-                </>
+                {authUser ?
+                    <>
+                        <Link onClick={logout} className={`text-red-400 text-sm font-montserrat flex-center cursor-pointer hover:font-bold`}>
+                            {authUser.name}
+                        </Link>
+                    </>
                     :
                     <>
-                        <Link onClick={logout} className={`text-red-400 font-montserrat flex-center cursor-pointer hover:font-bold`}>
-                            
+                        <Link to="/login" className={`text-red-400 font-montserrat flex-center cursor-pointer hover:font-bold`}>
+                            Login
+                        </Link>
+                        <Link to="/register" className={`text-red-400 font-montserrat flex-center cursor-pointer hover:font-bold`}>
+                            Register
                         </Link>
                     </>
                 }
