@@ -18,7 +18,7 @@ const BlogsPage = () => {
     const year = date.getFullYear();
     const formattedDate = `${day}-${month}-${year}`;
 
-    console.log(post);
+    // console.log(post);
     const navigate = useNavigate();
 
     if (loading) {
@@ -34,7 +34,7 @@ const BlogsPage = () => {
                     <p className='text-black/40 text-center text-sm'>{formattedDate}</p>
                 </div>
                 <div className='m-10'>
-                    <Link to='../blogs/updatePost' className='p-3 px-5 m-10 rounded font-montserrat text-white active:scale-90 duration-300 active:opacity-80 bg-red-300'>Add your Blog</Link>
+                    <Link to={`./../updatePost/${id}`} className='p-3 px-5 m-10 rounded font-montserrat text-white active:scale-90 duration-300 active:opacity-70 bg-red-300'>Update your Blog</Link>
                 </div>
                 <div className='flex-center'>
                     <div dangerouslySetInnerHTML={{ __html: posts.content }} className='text-3xl text-pretty w-3/4' />

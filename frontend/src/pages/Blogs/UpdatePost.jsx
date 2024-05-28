@@ -3,6 +3,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../context/AuthContext';
+import { useGetPostById } from '../../hooks/useGetPostById';
 
 const modules = {
     toolbar: [
@@ -29,6 +30,15 @@ const formats = [
 ];
 
 const CreatePost = () => {
+    const id = window.location.pathname.split('/')[3];
+    const { loading, post } = useGetPostById();
+    let posts = {};
+    for (let i = 0; i < post.length; i++) {
+        if (post[i]._id === id) {
+            posts = post[i];
+        }
+    }
+    console.log(id);
     const [value, setValue] = useState('');
     const navigate = useNavigate();  // Moved this line to the top of the component
     const { authUser } = useAuthContext()
@@ -43,7 +53,7 @@ const CreatePost = () => {
     const handleSubmit = (e) => {
         // e.preventDefault();
         // console.log(value);
-        navigate('/blogs');  // Now this works as expected
+        navigate(`./blogs/${id}`);  // Now this works as expected
     };
 
     return (

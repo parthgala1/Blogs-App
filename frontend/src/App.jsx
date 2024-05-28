@@ -48,7 +48,7 @@ function App() {
             <CreatePost />
           </>
         } />
-        <Route path='/blogs/updatePost' element={
+        <Route path='/blogs/updatePost/:id' element={
           <>
             <Navbar />
             <UpdatePost />
