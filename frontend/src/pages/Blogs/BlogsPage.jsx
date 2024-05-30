@@ -1,6 +1,7 @@
 import React from 'react';
 import { useGetPostById } from '../../hooks/useGetPostById';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDeletePostById } from '../../hooks/useDeletePostById';
 
 const BlogsPage = () => {
     const id = window.location.pathname.split('/')[2];
@@ -18,11 +19,19 @@ const BlogsPage = () => {
     const year = date.getFullYear();
     const formattedDate = `${day}-${month}-${year}`;
 
+
+    const { data } = useDeletePostById(id);
     // console.log(post);
     const navigate = useNavigate();
 
     if (loading) {
         return <div>Loading...</div>;
+    }
+
+    const handleDelete = () => {
+        if (data) {
+            navigate('/blogs');
+        }
     }
 
     return (
@@ -35,6 +44,7 @@ const BlogsPage = () => {
                 </div>
                 <div className='m-10'>
                     <Link to={`./../updatePost/${id}`} className='p-3 px-5 m-10 rounded font-montserrat text-white active:scale-90 duration-300 active:opacity-70 bg-red-300'>Update your Blog</Link>
+                    <Link onClick={handleDelete} className='p-3 px-5 m-10 rounded font-montserrat text-white active:scale-90 duration-300 active:opacity-70 bg-red-300'>Delete your Blog</Link>
                 </div>
                 <div className='flex-center'>
                     <div dangerouslySetInnerHTML={{ __html: posts.content }} className='text-3xl text-pretty w-3/4' />
