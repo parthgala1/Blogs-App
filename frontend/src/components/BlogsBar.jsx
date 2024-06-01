@@ -14,6 +14,7 @@ const BlogsBar = ({ props }) => {
     const formattedDate = `${day}-${month}-${year}`;
 
     // console.log(formattedDate); // Output: 25-05-2024
+    // console.log(id);
 
     const handleBlogs = () => {
         console.log('Blogs')

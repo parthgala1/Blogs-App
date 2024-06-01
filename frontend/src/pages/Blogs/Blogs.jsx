@@ -9,6 +9,10 @@ const Blogs = () => {
 
     const { loading, posts } = useGetPosts();
 
+    if (loading) {
+        return <div className='h-screen w-full flex-center text-3xl font-montserrat font-semibold bg-gradient-to-b from-red-100 via-red-300 to-red-200 text-white'>Loading...</div>;
+    }
+
     return (
         <div className="h-auto flex-center flex-col relative bg-white">
             <div className="flex-center flex-col h-full w-full">

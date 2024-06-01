@@ -1,10 +1,10 @@
 import react, { useState, useEffect } from "react";
 
-export const useGetPostById = () => {
+export const useGetPostById = (id) => {
   const [post, setPost] = useState({});
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    const getPostById = async (id) => {
+    const getPostById = async () => {
       try {
         setLoading(true);
         const response = await fetch(
