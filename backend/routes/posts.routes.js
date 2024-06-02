@@ -13,7 +13,7 @@ const router = express();
 router.get("/getAllPosts", getPosts);
 router.post("/addPosts", addPosts);
 router.get("/getPosts/:id", getPostById);
-router.put("/updatePosts/:id", authMiddleware, updatePostById);
+router.put("/updatePosts/:id", updatePostById);
 router.delete("/deletePosts/:id", deletePostById);
 
 export default router;

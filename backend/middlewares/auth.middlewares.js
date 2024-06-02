@@ -16,13 +16,16 @@ const authMiddleware = async (req, res, next) => {
       process.env.JWT_SECRET ||
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
     ); // Use your secret key
+
     const user = await User.findById(decoded.userId);
     if (!user) {
       return res.status(401).json({ message: "User not found" });
     }
+
     req.user = user; // Attach the user to the request object
     next();
   } catch (error) {
+    console.error("Token verification error:", error);
     res.status(401).json({ message: "Token is not valid" });
   }
 };
