@@ -3,6 +3,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../../context/AuthContext';
+import { useCreatePost } from '../../hooks/useCreatPosts.js'
 
 const modules = {
     toolbar: [
@@ -29,20 +30,22 @@ const formats = [
 
 const CreatePost = () => {
     const { authUser } = useAuthContext()
+    const [value, setValue] = useState('')
     const [blog, steBlog] = useState({
         title: '',
         summary: '',
         link: '',
-        content: '',
+        content: value,
         name: authUser.name,
     })
-    const [value, setValue] = useState('')
     const navigate = useNavigate()
+    const { loading, createPost } = useCreatePost()
 
     // console.log(authUser.name);
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        createPost(blog, blog.content = value)
         console.log(blog)
         navigate('/blogs')
     }
@@ -74,7 +77,7 @@ const CreatePost = () => {
                 <div className='w-full p-2 m-3 border-red-300 bg-white border-2 oultine-0'>
                     <input type="file" name='file' id='' />
                 </div>
-                <div className='w-full h-full p-2 m-3 border-red-300 bg-white border-2 oultine-0'>
+                <div className='w-full h-auto p-2 m-3 border-red-300 bg-white border-2 oultine-0'>
                     <ReactQuill
                         modules={toolbar ? modules : { toolbar: false }}
                         formats={formats}

@@ -14,6 +14,7 @@ export const getPosts = async (req, res) => {
 export const addPosts = async (req, res) => {
   try {
     const { title, summary, content, name, link } = req.body;
+    // const name = req.user.name;
     if (!title || !summary || !content)
       throw new Error("All fields are required");
     // const userId = req.user._id;
@@ -29,7 +30,8 @@ export const addPosts = async (req, res) => {
     await newPost.save();
     res.status(201).json(newPost);
   } catch (error) {
-    res.status(409).json({ message: error.message });
+    console.error("Error adding blog:", error);
+    res.status(500).json({ message: "Server error" });
   }
 };
 
