@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
-// import useSignup from '../../hooks/useSignup.js';
+import useSignup from '../../hooks/useSignup.js';
 
 const Register = () => {
     const [hidePassword, setHidePassword] = useState(true)
@@ -24,14 +24,13 @@ const Register = () => {
         password: '',
         confirmPassword: '',
         profilePicture: '',
-        member: 'Member'
     })
 
-    // const { loading, signup } = useSignup();
+    const { loading, signup } = useSignup();
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(user);
-        // await signup(user);
+        await signup(user);
         history('/');
     }
 

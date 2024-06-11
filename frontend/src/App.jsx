@@ -13,6 +13,7 @@ import Login from './pages/login/Login'
 import Register from './pages/Register/Register'
 import BlogsPage from './pages/Blogs/BlogsPage'
 import { AuthContext, useAuthContext } from './context/AuthContext'
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const { authUser } = useAuthContext()
@@ -77,6 +78,13 @@ function App() {
           </>
         } />
       </Routes>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          className: "rounded-xl bg-info-purple-1 text-white text-xl",
+        }}
+      />
     </>
   )
 }

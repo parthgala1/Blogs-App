@@ -26,9 +26,6 @@ const useSignup = () => {
 
     setLoading(true);
     try {
-      // Upload profile picture first
-      const pictureData = await uploadProfilePicture(profilePicture);
-
       // If upload successful, proceed with user registration
       const res = await fetch("http://localhost:6969/api/auth/register", {
         method: "POST",
@@ -38,11 +35,8 @@ const useSignup = () => {
           username,
           password,
           confirmPassword,
-          profilePicture: pictureData.url, // Use uploaded picture URL
-          member,
         }),
       });
-      console.log(pictureData.url);
 
       const data = await res.json();
       if (data.error) {
@@ -61,55 +55,14 @@ const useSignup = () => {
     }
   };
 
-  // Function to upload profile picture
-  const uploadProfilePicture = async (file) => {
-    try {
-      const formData = new FormData();
-      formData.append("my_file", file);
-
-      const res = await fetch("http://localhost:6969/api/auth/upload", {
-        method: "POST",
-        body: formData,
-      });
-
-      const data = await res.json();
-      if (data.error) {
-        throw new Error(data.error);
-      }
-
-      return data;
-    } catch (error) {
-      throw new Error("Error uploading profile picture");
-    }
-  };
-
   return { loading, signup };
 };
 
 export default useSignup;
 
-function handleInputErrors({
-  name,
-  username,
-  password,
-  confirmPassword,
-  profilePicture,
-  member,
-}) {
-  if (
-    !name ||
-    !username ||
-    !password ||
-    !confirmPassword ||
-    !member ||
-    !profilePicture
-  ) {
+function handleInputErrors({ name, username, password, confirmPassword }) {
+  if (!name || !username || !password || !confirmPassword) {
     toast.error("Please fill all the fields");
-    return false;
-  }
-
-  if (!profilePicture) {
-    toast.error("Please upload a profile picture");
     return false;
   }
 
