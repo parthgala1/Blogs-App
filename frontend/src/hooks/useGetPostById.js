@@ -11,7 +11,7 @@ export const useGetPostById = (id) => {
           `http://localhost:6969/api/posts/getPosts/${id}`
         );
         const data = await response.json();
-        console.log(id);
+        console.log(data);
         setPost(data);
       } catch (err) {
         console.log("Error: ", err);
